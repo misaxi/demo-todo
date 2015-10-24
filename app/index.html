@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1" />
-  <title>Bean's Todo</title>
+  <title>Bean's Jar</title>
   <link rel="stylesheet" href="bundle.css">
 </head>
 
@@ -21,7 +21,7 @@
       <md-card>
         <form name="taskForm" layout-padding layout="row" layout-align="start end">
           <md-input-container flex>
-            <label>Got new beans for the jar?</label>
+            <label>Got new beans?</label>
             <input type="text" ng-model="vm.model.text" md-maxlength="140">
           </md-input-container>
           <md-button class="md-icon-button" ng-show="vm.model.text" ng-disabled="!vm.model.text" ng-click="vm.create()">
@@ -32,7 +32,7 @@
 
         <div class="todo__items--empty" ng-if="!vm.items.length">
           <md-icon>local_cafe</md-icon>
-          <p>No beans left, try put some more...</p>
+          <p>All beans are brewed. Enjoy your cuppa.</p>
         </div>
 
         <md-content class="todo__items">
