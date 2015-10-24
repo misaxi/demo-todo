@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "scripts": {
     "build-html": "copyfiles --up 1 app/index.html app/**/*.html app/fonts/**/* dist/",
-    "build-js": "watchify app/scripts/index.js -o dist/bundle.js",
+    "build-js": "watchify app/scripts/main.js -o dist/bundle.js",
     "build-sass": "node-sass app/styles/main.scss dist/bundle.css",
-    "build-min-js": "browserify public/js/app.js | uglifyjs -o dist/bundle.min.js",
-    "build-min-sass": "node-sass public/sass/main.scss | csso -o dist/bundle.min.css",
+    "build-min-js": "browserify app/scripts/main.js | uglifyjs -o dist/bundle.js",
+    "build-min-sass": "node-sass app/styles/main.scss | csso -o dist/bundle.css",
     "watch-html": "nodemon -e html -w app/ -x 'npm run build-html'",
-    "watch-js": "watchify app/scripts/index.js -v -o dist/bundle.js",
+    "watch-js": "watchify app/scripts/main.js -v -o dist/bundle.js",
     "watch-sass": "nodemon -e scss -w app/styles -x 'npm run build-sass'",
-    "build": "mkdir -p dist && npm run build-html & npm run build-js & npm run build-sass",
+    "publish": "mkdir -p dist && npm run build-html && npm run build-min-js && npm run build-min-sass",
     "watch": "npm run watch-html & npm run watch-js & npm run watch-sass",
     "dev": "browser-sync start --server dist --files 'dist/*.*, dist/**/*.*'"
   },
@@ -33,7 +33,6 @@
     "browserify": "^11.2.0",
     "csso": "^1.4.1",
     "envify": "^3.4.0",
-    "gulp": "^3.9.0",
     "partialify": "^3.1.5",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.4.0"
