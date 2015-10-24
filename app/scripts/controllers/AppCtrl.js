@@ -13,6 +13,7 @@ function AppCtrl ($http, $window, $timeout) {
     items: [],
     create: create,
     remove: remove,
+    done: done,
     showSeq: showSeq
   })
 
@@ -25,6 +26,10 @@ function AppCtrl ($http, $window, $timeout) {
     this.items.unshift(this.model)
     save(this.items)
     this.model = {}
+  }
+
+  function done (item) {
+    save(this.items)
   }
 
   function remove (item) {

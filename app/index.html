@@ -38,7 +38,7 @@
         <md-content class="todo__items">
           <div layout-padding layout="row" layout-align="start center" ng-repeat="item in vm.items | orderBy:'done'">
             <div flex>
-              <md-checkbox ng-model="item.done">{{item.text}}</md-checkbox>
+              <md-checkbox ng-model="item.done" ng-change="vm.done(item)">{{item.text}}</md-checkbox>
             </div>
             <md-button class="md-icon-button" ng-click="vm.remove(item)">
               <md-tooltip md-direction="right">Remove</md-tooltip>
