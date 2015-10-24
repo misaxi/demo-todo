@@ -2,6 +2,10 @@
 @import "_fonts";
 @import "_todo";
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 .app-desc {
   margin-top: 20px;
   color: #bbb;
