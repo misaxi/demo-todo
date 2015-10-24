@@ -50,12 +50,12 @@ function AppCtrl ($http, $window, $timeout) {
   const key = 'items'
   function load () {
     const json = store.getItem(key) || '[]'
-    const items = JSON.parse(json)
+    const items = angular.fromJson(json)
     return items
   }
 
   function save (items) {
-    const json = JSON.stringify(items)
+    const json = angular.toJson(items)
     store.setItem(key, json)
   }
 }
