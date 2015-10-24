@@ -5,6 +5,8 @@ A simple todo app built on Angular Material, live demo http://misaxi.github.io/d
 
 ## Project structure
 ```
+algo\                 # algorithms, e.g. counting subsequence
+
 app\                  # application folder
 
   - scripts\          # scripts folder, using babelify to transpile ES6 -> ES5
