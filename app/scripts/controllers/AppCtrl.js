@@ -1,16 +1,19 @@
 const angular = require('angular')
+const subseq = require('../../../algo/subseq')
+
 angular
   .module('todo')
   .controller('AppCtrl', AppCtrl)
 
 /* @ngInject */
-function AppCtrl ($window, $timeout) {
+function AppCtrl ($http, $window, $timeout) {
   const store = $window.localStorage
 
   angular.extend(this, {
     items: [],
     create: create,
-    remove: remove
+    remove: remove,
+    showSeq: showSeq
   })
 
   // workaround for reading data from localStorage
@@ -26,6 +29,16 @@ function AppCtrl ($window, $timeout) {
   function remove (item) {
     this.items.splice(this.items.indexOf(item), 1)
     save(this.items)
+  }
+
+  function showSeq () {
+    $http.get('assets/pi.txt')
+      .then(res => {
+        const PI = res.data
+        const count = subseq(PI, '123')
+        this.subseqCount = `There are ${count} subsequence of '123'
+          within the first 100,000 digits of PI...`
+      })
   }
 
   const key = 'items'
