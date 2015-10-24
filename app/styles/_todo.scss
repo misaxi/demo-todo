@@ -6,6 +6,13 @@
   }
   md-checkbox {
     margin: 0;
+
+    &.md-checked {
+      .md-label {
+        text-decoration: line-through;
+        color: rgba(0,0,0,0.35);
+      }
+    }
   }
   &--empty {
     margin-top: 120px;

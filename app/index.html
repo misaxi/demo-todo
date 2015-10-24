@@ -36,7 +36,7 @@
         </div>
 
         <md-content class="todo__items">
-          <div layout-padding layout="row" layout-align="start center" ng-repeat="item in vm.items">
+          <div layout-padding layout="row" layout-align="start center" ng-repeat="item in vm.items | orderBy:'done'">
             <div flex>
               <md-checkbox ng-model="item.done">{{item.text}}</md-checkbox>
             </div>

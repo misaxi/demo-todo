@@ -21,6 +21,7 @@ function AppCtrl ($http, $window, $timeout) {
   $timeout(() => this.items = load())
 
   function create () {
+    this.model.done = false
     this.items.unshift(this.model)
     save(this.items)
     this.model = {}
