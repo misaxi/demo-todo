@@ -1,0 +1,23 @@
+.todo {
+
+}
+.todo__items {
+  div.layout-padding,
+  div.flex {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  md-checkbox {
+    margin: 0;
+  }
+  &--empty {
+    text-align: center;
+    md-icon {
+      font-size: 128px;
+      color: rgba(0,0,0,0.05);
+    }
+    p {
+      color: rgba(0,0,0,0.4);
+    }
+  }
+}
