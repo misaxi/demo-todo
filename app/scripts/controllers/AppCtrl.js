@@ -1,10 +1,10 @@
 const angular = require('angular')
 angular
   .module('todo')
-  .controller('MainCtrl', MainCtrl)
+  .controller('AppCtrl', AppCtrl)
 
 /* @ngInject */
-function MainCtrl ($window, $timeout) {
+function AppCtrl ($window, $timeout) {
   const store = $window.localStorage
 
   angular.extend(this, {

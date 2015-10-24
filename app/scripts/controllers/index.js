@@ -1,1 +1,1 @@
-require('./MainCtrl')
+require('./AppCtrl')
