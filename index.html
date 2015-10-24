@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todo">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>Bean's Jar</title>
+  <link rel="stylesheet" href="bundle.css">
+</head>
+
+<body ng-controller="AppCtrl as vm" ng-cloak>
+  <md-toolbar layout="row">
+
+    <div flex-sm="0" flex-md="10" flex-lg="15" flex-gt-lg="25"></div>
+    <div class="md-toolbar-tools" flex>
+      <h1>Bean's Jar</h1>
+    </div>
+    <div flex-sm="0" flex-md="10" flex-lg="15" flex-gt-lg="25"></div>
+  </md-toolbar>
+
+  <div layout="row">
+    <div flex-sm="0" flex-md="10" flex-lg="15" flex-gt-lg="25"></div>
+    <div flex>
+      <md-card>
+        <form name="taskForm" layout-padding layout="row" layout-align="start end">
+          <md-input-container flex>
+            <label>Got new beans?</label>
+            <input type="text" ng-model="vm.model.text" md-maxlength="140">
+          </md-input-container>
+          <md-button class="md-icon-button" ng-show="vm.model.text" ng-disabled="!vm.model.text" ng-click="vm.create()">
+            <md-tooltip md-direction="right">Create</md-tooltip>
+            <md-icon>create</md-icon>
+          </md-button>
+        </form>
+
+        <div class="todo__items--empty" ng-if="!vm.items.length">
+          <md-icon>local_cafe</md-icon>
+          <p>All beans are brewed. Enjoy your cuppa.</p>
+        </div>
+
+        <md-content class="todo__items">
+          <div layout-padding layout="row" layout-align="start center" ng-repeat="item in vm.items | orderBy:'done'">
+            <div flex>
+              <md-checkbox ng-model="item.done" ng-change="vm.done(item)">{{item.text}}</md-checkbox>
+            </div>
+            <md-button class="md-icon-button" ng-click="vm.remove(item)">
+              <md-tooltip md-direction="right">Remove</md-tooltip>
+              <md-icon>remove_circle</md-icon>
+            </md-button>
+          </div>
+        </md-content>
+      </md-card>
+
+      <p class="app-desc">
+        A todo app for Mr Bean
+        <br>
+        <md-button class="md-fab md-mini" ng-click="vm.showSeq()">
+          <md-tooltip>Count subseq '123' of &pi;</md-tooltip>
+          <md-icon>local_pizza</md-icon>
+        </md-button>
+        <br>
+        {{vm.subseqCount}}
+      </p>
+
+    </div>
+    <div flex-sm="0" flex-md="10" flex-lg="15" flex-gt-lg="25"></div>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+
+</html>
