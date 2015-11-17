@@ -1,5 +1,7 @@
 # Bean's Jar
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 ## Project background
 A simple todo app built on Angular Material, live demo http://misaxi.github.io/demo-todo/index.html
 
